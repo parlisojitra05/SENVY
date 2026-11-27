@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output & Vite cache
+dist/
+.vite/
+
+# Environment & local overrides
+.env
+.env.*
+*.local
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240" role="img" aria-label="SENVY Sensitive Data Protection animated hero banner">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8F9F6"/>
+      <stop offset="55%" stop-color="#EAF2EA"/>
+      <stop offset="100%" stop-color="#DCE9DE"/>
+    </linearGradient>
+    <linearGradient id="scanBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#789B81" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#789B81" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#789B81" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="cardClip">
+      <rect x="8" y="8" width="884" height="224" rx="18"/>
+    </clipPath>
+    <style>
+      .title { font: 700 38px 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; fill: #303A33; letter-spacing: -0.5px; }
+      .subtitle { font: 500 16px 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; fill: #5E675E; }
+      .tagline { font: 600 14px 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; fill: #4E6B56; }
+      .pill { font: 600 11px 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; fill: #303A33; }
+      .mono { font: 600 11px 'Consolas', 'Courier New', monospace; fill: #303A33; }
+
+      @keyframes floatShield {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+      }
+      @keyframes pulseDot {
+        0%, 100% { opacity: 1; r: 4.5; }
+        50% { opacity: 0.45; r: 3.5; }
+      }
+      @keyframes sweepBeam {
+        0% { transform: translateX(-220px); }
+        100% { transform: translateX(920px); }
+      }
+      @keyframes chipFade {
+        0%, 100% { opacity: 0.88; }
+        50% { opacity: 1; }
+      }
+
+      .shield-group { animation: floatShield 3.6s ease-in-out infinite; }
+      .status-dot { animation: pulseDot 2.2s ease-in-out infinite; }
+      .beam { animation: sweepBeam 4.8s linear infinite; }
+      .chip { animation: chipFade 3s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Outer soft sage canvas -->
+  <rect x="8" y="8" width="884" height="224" rx="18" fill="url(#bgGrad)" stroke="#C7DDCB" stroke-width="1.5"/>
+
+  <!-- Subtle animated scanner sweep -->
+  <g clip-path="url(#cardClip)">
+    <rect class="beam" x="0" y="8" width="180" height="224" fill="url(#scanBeam)"/>
+  </g>
+
+  <!-- Left SENVY Shield Emblem -->
+  <g class="shield-group" transform="translate(52, 54)">
+    <rect x="0" y="0" width="96" height="96" rx="22" fill="#FFFFFF" stroke="#C7DDCB" stroke-width="1.5"/>
+    <path d="M48 16L22 27.5v18.2c0 16.5 11.1 31.2 26 35 14.9-3.8 26-18.5 26-35V27.5L48 16z"
+          fill="#DCE9DE" stroke="#789B81" stroke-width="2.5"/>
+    <path d="M36.5 48.5l7.5 7.5 15.5-16" fill="none" stroke="#303A33" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Title & Tagline -->
+  <g transform="translate(174, 62)">
+    <rect x="0" y="-16" width="218" height="24" rx="12" fill="#FFFFFF" stroke="#C7DDCB" stroke-width="1"/>
+    <circle class="status-dot" cx="15" cy="-4" r="4.5" fill="#789B81"/>
+    <text class="pill" x="27" y="0">100% Client-Side · Account-Free</text>
+
+    <text class="title" x="0" y="42">SENVY</text>
+    <text class="subtitle" x="140" y="40">Sensitive Data Protection</text>
+    <text class="tagline" x="0" y="68">"Detect it. Protect it. Share it safely."</text>
+  </g>
+
+  <!-- Bottom Category Pastel Chips -->
+  <g transform="translate(174, 158)">
+    <g class="chip">
+      <rect x="0" y="0" width="84" height="26" rx="8" fill="#F0EAF8" stroke="#DDD1EE"/>
+      <text class="mono" x="14" y="17">EMAIL</text>
+    </g>
+    <g class="chip" transform="translate(94, 0)">
+      <rect x="0" y="0" width="92" height="26" rx="8" fill="#E8F1FA" stroke="#CFE0F2"/>
+      <text class="mono" x="12" y="17">PHONE +91</text>
+    </g>
+    <g class="chip" transform="translate(196, 0)">
+      <rect x="0" y="0" width="68" height="26" rx="8" fill="#FAEFE4" stroke="#EDD8C3"/>
+      <text class="mono" x="18" y="17">PAN</text>
+    </g>
+    <g class="chip" transform="translate(274, 0)">
+      <rect x="0" y="0" width="96" height="26" rx="8" fill="#F7F3D9" stroke="#E6DFB5"/>
+      <text class="mono" x="14" y="17">AADHAAR</text>
+    </g>
+    <g class="chip" transform="translate(380, 0)">
+      <rect x="0" y="0" width="112" height="26" rx="8" fill="#F8E7E9" stroke="#EBD0D3"/>
+      <text class="mono" x="12" y="17">CARD (LUHN)</text>
+    </g>
+    <g class="chip" transform="translate(502, 0)">
+      <rect x="0" y="0" width="78" height="26" rx="8" fill="#E6F1ED" stroke="#CBE0D9"/>
+      <text class="mono" x="20" y="17">IPv4</text>
+    </g>
+  </g>
+
+  <!-- Right Privacy Badge -->
+  <g transform="translate(690, 48)">
+    <rect x="0" y="0" width="168" height="86" rx="12" fill="#FFFFFF" stroke="#E5EAE4"/>
+    <text class="pill" x="14" y="23">LOCAL PRIVACY STATUS</text>
+    <text class="subtitle" style="font-size:11px" x="14" y="44">Server Upload: None</text>
+    <text class="subtitle" style="font-size:11px" x="14" y="60">External AI: None</text>
+    <text class="subtitle" style="font-size:11px" x="14" y="76">Storage: RAM Only</text>
+  </g>
+</svg>

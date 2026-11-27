@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280" width="900" height="280" role="img" aria-label="SENVY animated side-by-side redaction pipeline diagram">
+  <defs>
+    <style>
+      .heading { font: 700 13px 'Segoe UI', -apple-system, sans-serif; fill: #303A33; }
+      .sub { font: 500 11px 'Segoe UI', -apple-system, sans-serif; fill: #6B746B; }
+      .code { font: 500 11.5px 'Consolas', 'Courier New', monospace; fill: #303A33; }
+      .token { font: 700 11.5px 'Consolas', 'Courier New', monospace; fill: #303A33; }
+      .modeTitle { font: 700 11px 'Segoe UI', -apple-system, sans-serif; fill: #4E6B56; }
+
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -24; }
+      }
+      @keyframes cycleFull {
+        0%, 28% { opacity: 1; }
+        33%, 95% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      @keyframes cyclePartial {
+        0%, 30% { opacity: 0; }
+        35%, 61% { opacity: 1; }
+        66%, 100% { opacity: 0; }
+      }
+      @keyframes cyclePseudo {
+        0%, 63% { opacity: 0; }
+        68%, 95% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      @keyframes pulseEngine {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.04); }
+      }
+
+      .flow-line { stroke-dasharray: 6 6; animation: dashFlow 1.2s linear infinite; }
+      .mode-full { animation: cycleFull 9s ease-in-out infinite; }
+      .mode-partial { animation: cyclePartial 9s ease-in-out infinite; }
+      .mode-pseudo { animation: cyclePseudo 9s ease-in-out infinite; }
+      .engine-box { transform-origin: 450px 140px; animation: pulseEngine 2.6s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="4" y="4" width="892" height="272" rx="16" fill="#F8F9F6" stroke="#E5EAE4" stroke-width="1.5"/>
+
+  <!-- LEFT PANEL: ORIGINAL -->
+  <g transform="translate(24, 24)">
+    <rect x="0" y="0" width="330" height="232" rx="12" fill="#FFFFFF" stroke="#E5EAE4"/>
+    <rect x="14" y="14" width="76" height="22" rx="6" fill="#F8F9F6" stroke="#E5EAE4"/>
+    <text class="heading" style="font-size:10.5px" x="25" y="29">ORIGINAL</text>
+    <text class="sub" x="102" y="29">Detected PII Highlighted</text>
+
+    <line x1="0" y1="48" x2="330" y2="48" stroke="#E5EAE4"/>
+
+    <!-- Lines -->
+    <text class="sub" x="14" y="72">Email:</text>
+    <rect x="74" y="58" width="166" height="20" rx="4" fill="#F0EAF8" stroke="#DDD1EE"/>
+    <text class="code" x="80" y="72">riya.patel@gmail.com</text>
+
+    <text class="sub" x="14" y="104">Phone:</text>
+    <rect x="74" y="90" width="90" height="20" rx="4" fill="#E8F1FA" stroke="#CFE0F2"/>
+    <text class="code" x="80" y="104">9876543210</text>
+
+    <text class="sub" x="14" y="136">PAN:</text>
+    <rect x="74" y="122" width="88" height="20" rx="4" fill="#FAEFE4" stroke="#EDD8C3"/>
+    <text class="code" x="80" y="136">ABCDE1234F</text>
+
+    <text class="sub" x="14" y="168">Aadhaar:</text>
+    <rect x="74" y="154" width="116" height="20" rx="4" fill="#F7F3D9" stroke="#E6DFB5"/>
+    <text class="code" x="80" y="168">1234 5678 9012</text>
+
+    <text class="sub" x="14" y="200">Card:</text>
+    <rect x="74" y="186" width="150" height="20" rx="4" fill="#F8E7E9" stroke="#EBD0D3"/>
+    <text class="code" x="80" y="200">4111 1111 1111 1111</text>
+
+    <rect x="234" y="186" width="84" height="20" rx="4" fill="#E6F1ED" stroke="#CBE0D9"/>
+    <text class="code" x="239" y="200">192.168.1.25</text>
+  </g>
+
+  <!-- FLOW CONNECTORS -->
+  <line class="flow-line" x1="358" y1="140" x2="394" y2="140" stroke="#789B81" stroke-width="2.5"/>
+  <line class="flow-line" x1="506" y1="140" x2="542" y2="140" stroke="#789B81" stroke-width="2.5"/>
+
+  <!-- CENTER ENGINE BADGE -->
+  <g class="engine-box">
+    <rect x="394" y="88" width="112" height="104" rx="14" fill="#EAF2EA" stroke="#789B81" stroke-width="1.5"/>
+    <path d="M450 102L432 110v12c0 11 7.6 20.8 18 23.4 10.4-2.6 18-12.4 18-23.4v-12L450 102z"
+          fill="#DCE9DE" stroke="#668A70" stroke-width="2"/>
+    <path d="M442 123l5 5 10-10" fill="none" stroke="#303A33" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text class="heading" style="font-size:11px" x="415" y="164">Local Engine</text>
+    <text class="sub" style="font-size:10px" x="410" y="180">0 Server Uploads</text>
+  </g>
+
+  <!-- RIGHT PANEL: SANITIZED (CYCLING 3 MODES) -->
+  <g transform="translate(546, 24)">
+    <rect x="0" y="0" width="330" height="232" rx="12" fill="#FFFFFF" stroke="#C7DDCB" stroke-width="1.5"/>
+    <rect x="14" y="14" width="82" height="22" rx="6" fill="#EAF2EA" stroke="#C7DDCB"/>
+    <text class="heading" style="font-size:10.5px" x="24" y="29">SANITIZED</text>
+
+    <!-- Animated Mode Label -->
+    <text class="modeTitle mode-full" x="108" y="29">Mode: Full Mask</text>
+    <text class="modeTitle mode-partial" x="108" y="29">Mode: Partial Mask</text>
+    <text class="modeTitle mode-pseudo" x="108" y="29">Mode: Pseudonymization</text>
+
+    <line x1="0" y1="48" x2="330" y2="48" stroke="#E5EAE4"/>
+
+    <!-- MODE 1: FULL MASK -->
+    <g class="mode-full">
+      <text class="sub" x="14" y="72">Email:</text>
+      <rect x="74" y="58" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="72">[REDACTED]</text>
+
+      <text class="sub" x="14" y="104">Phone:</text>
+      <rect x="74" y="90" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="104">[REDACTED]</text>
+
+      <text class="sub" x="14" y="136">PAN:</text>
+      <rect x="74" y="122" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="136">[REDACTED]</text>
+
+      <text class="sub" x="14" y="168">Aadhaar:</text>
+      <rect x="74" y="154" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="168">[REDACTED]</text>
+
+      <text class="sub" x="14" y="200">Card/IP:</text>
+      <rect x="74" y="186" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="200">[REDACTED]</text>
+      <rect x="172" y="186" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="180" y="200">[REDACTED]</text>
+    </g>
+
+    <!-- MODE 2: PARTIAL MASK -->
+    <g class="mode-partial">
+      <text class="sub" x="14" y="72">Email:</text>
+      <rect x="74" y="58" width="114" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="72">r***@g***.com</text>
+
+      <text class="sub" x="14" y="104">Phone:</text>
+      <rect x="74" y="90" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="104">******3210</text>
+
+      <text class="sub" x="14" y="136">PAN:</text>
+      <rect x="74" y="122" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="136">XXXXX1234X</text>
+
+      <text class="sub" x="14" y="168">Aadhaar:</text>
+      <rect x="74" y="154" width="120" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="168">XXXX XXXX 9012</text>
+
+      <text class="sub" x="14" y="200">Card/IP:</text>
+      <rect x="74" y="186" width="150" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="80" y="200">XXXX XXXX XXXX 1111</text>
+      <rect x="230" y="186" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="235" y="200">XXX.XXX.X.25</text>
+    </g>
+
+    <!-- MODE 3: PSEUDONYMIZATION -->
+    <g class="mode-pseudo">
+      <text class="sub" x="14" y="72">Email:</text>
+      <rect x="74" y="58" width="76" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="72">EMAIL_01</text>
+
+      <text class="sub" x="14" y="104">Phone:</text>
+      <rect x="74" y="90" width="76" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="104">PHONE_01</text>
+
+      <text class="sub" x="14" y="136">PAN:</text>
+      <rect x="74" y="122" width="66" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="136">PAN_01</text>
+
+      <text class="sub" x="14" y="168">Aadhaar:</text>
+      <rect x="74" y="154" width="90" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="168">AADHAAR_01</text>
+
+      <text class="sub" x="14" y="200">Card/IP:</text>
+      <rect x="74" y="186" width="70" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="82" y="200">CARD_01</text>
+      <rect x="152" y="186" width="58" height="20" rx="4" fill="#DCE9DE" stroke="#C7DDCB"/>
+      <text class="token" x="160" y="200">IP_01</text>
+    </g>
+  </g>
+</svg>
